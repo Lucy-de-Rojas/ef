@@ -115,7 +115,7 @@ program options.</p>
 
 
 {/* topics checkboxes: */}
-<div className="flex flex-col w-1/3 text-center bg-red-200">
+<div className="flex flex-col w-1/3 text-center bg-red-0">
 <h2 className="text-2xl font-bold my-5">Topics</h2>
 
 {["Business Strategy", "Change & Culture", "Innovation & Digital Informatrion","Personal Leadership & Team Development"].map((item, index) => {
