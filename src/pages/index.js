@@ -80,6 +80,25 @@ export default function Home() {
 
 
 
+  function handleResetFilters(){
+    setActiveTopics([]);
+    setActiveLearningFormats([]);
+
+    document.querySelectorAll('.topics').forEach(item => {
+      item.checked = false;
+      item.parentElement.style.backgroundColor = 'lightBlue';
+      item.parentElement.style.color = 'black';
+      item.parentElement.style.fontWeight = "normal";
+    });
+
+    document.querySelectorAll('.learningFormats').forEach(item => {
+      item.checked = false;
+      item.parentElement.style.backgroundColor = 'lightGreen';
+      item.parentElement.style.color = 'black';
+    });
+  }
+
+
 
 
   return (<div className="flex flex-col items-center justify-center px-16 bg-blue-200">
@@ -102,20 +121,20 @@ program options.</p>
 {["Business Strategy", "Change & Culture", "Innovation & Digital Informatrion","Personal Leadership & Team Development"].map((item, index) => {
   return (
   <label key={index} className="rounded-full bg-[lightBlue] py-5 mb-2" id={item} onChange={handleTopicChange} value={item}>{item}
-  <input type="checkbox" className="hidden" id={item} value={item}/>
+  <input type="checkbox" className="hidden topics" id={item} value={item}/>
   </label>
 );})}
 
 
 
-
+{/* Learning Formats: */}
 <h2 className="text-2xl font-bold mb-5 mt-10">Learning Formats</h2>
 
 {["Virtual", "Residential", "Blended", "Self-Study"].map((item, index)=>{
 
   return (
   <label key={index} className="rounded-full bg-[lightGreen] py-5 mb-2" id={item} onChange={handleLearningFormatChange} value={item}>{item}
-  <input type="checkbox" className="hidden" id={item} value={item}  />
+  <input type="checkbox" className="hidden learningFormats" id={item} value={item}  />
   </label>)})
 
 
@@ -126,7 +145,7 @@ program options.</p>
 
 
 
-<input type="button" value="Reset Filters" className="bg-red-500 rounded-full py-5 mt-10 text-white font-bold text-2xl" />
+<input type="button" value="Reset Filters" className="bg-red-500 rounded-full py-5 mt-10 text-white font-bold text-2xl" onClick={handleResetFilters} />
 
 </div>
 
