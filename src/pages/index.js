@@ -11,9 +11,11 @@ export default function Home() {
 
   const [data, setData] = useState([]);
   const [activeTopics, setActiveTopics] = useState([]);
+  const [activeLearningFormats, setActiveLearningFormats] = useState([]);
 
 
-  console.log("activeTopics 🔴", activeTopics);
+  // console.log("activeTopics 🔴", activeTopics);
+  console.log("activeLearningFormats 🔴", activeLearningFormats);
 
 
 
@@ -60,6 +62,23 @@ export default function Home() {
 
 
 
+  // handle learning format change:
+  function handleLearningFormatChange (e) {
+    console.log("🔴", e.target.value, e.target.checked);
+    if(e.target.checked === true){
+      setActiveLearningFormats([...activeLearningFormats, e.target.value]);
+      e.target.parentElement.style.backgroundColor = 'green';
+      e.target.parentElement.style.color = 'white';
+    }
+    else{
+      setActiveLearningFormats(activeLearningFormats.filter(item => item !== e.target.value));
+      e.target.parentElement.style.backgroundColor = 'lightGreen';
+      e.target.parentElement.style.color = 'black';
+    }
+  }
+
+
+
 
 
 
@@ -86,6 +105,25 @@ program options.</p>
   <input type="checkbox" className="hidden" id={item} value={item}/>
   </label>
 );})}
+
+
+
+
+<h2 className="text-2xl font-bold mb-5 mt-10">Learning Formats</h2>
+
+{["Virtual", "Residential", "Blended", "Self-Study"].map((item, index)=>{
+
+  return (
+  <label key={index} className="rounded-full bg-[lightGreen] py-5 mb-2" id={item} onChange={handleLearningFormatChange} value={item}>{item}
+  <input type="checkbox" className="hidden" id={item} value={item}  />
+  </label>)})
+
+
+
+
+
+}
+
 
 </div>
 
