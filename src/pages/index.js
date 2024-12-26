@@ -14,7 +14,7 @@ export default function Home() {
   const [activeLearningFormats, setActiveLearningFormats] = useState([]);
 
 
-  // console.log("activeTopics 🔴", activeTopics);
+  console.log("activeTopics 🔴", activeTopics);
   console.log("activeLearningFormats 🔴", activeLearningFormats);
 
 
@@ -124,6 +124,9 @@ program options.</p>
 
 }
 
+
+
+<input type="button" value="Reset Filters" className="bg-red-500 rounded-full py-5 mt-10 text-white font-bold text-2xl" />
 
 </div>
 
