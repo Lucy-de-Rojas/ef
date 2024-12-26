@@ -1,40 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# EF Digital - Technical Test
 
-## Getting Started
+## Instructions:
 
-First, run the development server:
+Hult/EF specialize in delivering immersive learning programs focused on the most critical global business skills for all levels of employees. The marketing team would like you to create an overview page of the programs that we have to offer.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Spending no longer than 4 hours on the test, use the designs provided in the **"/designs/"** folder to build a results page with the following functionality in priority order:
+- the ability to filter by:
+    - topic
+    - learning format
+- the ability to sort on:
+    - alphabetically
+    - date
+    - bestsellers
+- pagination
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+On completion of the test:
+- Compress code and send back to interviewer via email
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Considerations
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+- 70% of users that visit the site use desktop i.e screen sizes greater than 1200px
+- The company caters for the global market and translates core pages for 7 different languages
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Data
 
-## Learn More
+An express app located in the **"/backend/"** folder should be used to serve program data to the react app.
 
-To learn more about Next.js, take a look at the following resources:
+Run `node index.js` to start the application, then you can query it via the following url:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- http://localhost:3010/programs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Getting Started
 
-## Deploy on Vercel
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+In the project directory, you can run:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### `npm start`
+
+Runs the app in the development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Optional
+- Deploy site via netlify, amplify or equivalent hosting service
