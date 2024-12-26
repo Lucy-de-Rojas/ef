@@ -4,7 +4,7 @@ export default function handler(req, res) {
                                 {
                                 "id": 1,
                                 "title": "Agile Innovation for Business Growth",
-                                "topic": "change-and-culture",
+                                "topic": "change-&-culture",
                                 "learningFormats": [
                                 "virtual",
                                 "residential",
@@ -17,7 +17,7 @@ export default function handler(req, res) {
                                 {
                                 "id": 2,
                                 "title": "Developing an Entrepreurial Mindset: Speed, Creativity and Growth",
-                                "topic": "change-and-culture",
+                                "topic": "change-&-culture",
                                 "learningFormats": [
                                 "self-study"
                                 ],
@@ -27,7 +27,7 @@ export default function handler(req, res) {
                                 {
                                 "id": 3,
                                 "title": "Leading Across Cultures",
-                                "topic": "change-and-culture",
+                                "topic": "change-&-culture",
                                 "learningFormats": [
                                 "virtual",
                                 "residential",
@@ -39,7 +39,7 @@ export default function handler(req, res) {
                                 {
                                 "id": 4,
                                 "title": "Leading Digital Transformation",
-                                "topic": "innovation-and-digital-information",
+                                "topic": "innovation-&-digital-information",
                                 "learningFormats": [
                                 "virtual"
                                 ],
@@ -49,7 +49,7 @@ export default function handler(req, res) {
                                 {
                                 "id": 5,
                                 "title": "Translating Strategy into Action",
-                                "topic": "change-and-culture",
+                                "topic": "change-&-culture",
                                 "learningFormats": [
                                 "self-study"
                                 ],
@@ -71,7 +71,7 @@ export default function handler(req, res) {
                                 {
                                 "id": 7,
                                 "title": "Resilient Leadership: For You, Your Team and Your Organization",
-                                "topic": "personal-leadership-and-team-development",
+                                "topic": "personal-leadership-&-team-development",
                                 "learningFormats": [
                                 "online"
                                 ],
@@ -93,7 +93,7 @@ export default function handler(req, res) {
                                 {
                                 "id": 9,
                                 "title": "Advanced Organization Design",
-                                "topic": "innovation-and-digital-information",
+                                "topic": "innovation-&-digital-information",
                                 "learningFormats": [
                                 "self-study"
                                 ],
@@ -103,7 +103,7 @@ export default function handler(req, res) {
                                 {
                                 "id": 10,
                                 "title": "Fundamentals of Organization Design",
-                                "topic": "change-and-culture",
+                                "topic": "change-&-culture",
                                 "learningFormats": [
                                 "blended"
                                 ],
