@@ -203,7 +203,12 @@ program options.</p>
 
 <div className="bottomSection flex flex-row justify-between">
   <div className="topicWrapper">
+
+
     {item.topic.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+
+
+
   </div>
 
 <div className="learningFormatsWrapper flex flex-row ">
