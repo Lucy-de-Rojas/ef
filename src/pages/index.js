@@ -161,7 +161,7 @@ program options.</p>
 {/* Learning Formats: */}
 <h2 className="text-2xl font-bold mb-5 mt-10">Learning Formats</h2>
 
-{["virtual", "residential", "blended", "self-study"].map((item, index)=>{
+{["virtual", "online", "residential", "blended", "self-study" ].map((item, index)=>{
 
   return (
   <label key={index} className="rounded-full bg-[lightGreen] py-5 mb-2" id={item} onChange={handleLearningFormatChange} value={item}>{item}
