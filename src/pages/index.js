@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState, useLayoutEffect } from 'react';
 
 
 
@@ -10,35 +9,67 @@ export default function Home() {
 
 
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
   const [activeTopics, setActiveTopics] = useState([]);
   const [activeLearningFormats, setActiveLearningFormats] = useState([]);
 
 
-  console.log("activeTopics 🔴", activeTopics);
-  console.log("activeLearningFormats 🔴", activeLearningFormats);
-
-
-
-
-
-
-
-// getting data from the server:
   useEffect(() => {
+
+    // fetch data from api/data:
     fetch('/api/data')
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => console.error('Error fetching data:', error));
-  },[]);
+
+      if(activeTopics.length ===0 && activeLearningFormats.length===0){
+        setFilteredData(data);
+      } else {
+
+        const filteredData = data.filter(item =>
+          (activeTopics.length === 0 || activeTopics.includes(item.topic)) &&
+          (activeLearningFormats.length === 0 || item.learningFormats.some(format => activeLearningFormats.includes(format)))
+        );
+
+        console.log("🔴filteredData", filteredData);
+        setFilteredData(filteredData);
+      }
+      }, [activeTopics, activeLearningFormats]);
 
 
 
-  // console.log(data);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // handle topic change:
   function handleTopicChange (e) {
     // console.log("🔴", e.target.value, e.target.checked);
+
+    // filter data based on active topics:
+    // const filteredDataByTopic = data.filter(item => activeTopics.includes(item.topic));
+    // console.log("🔴filteredDataByTopic", filteredDataByTopic);
+    // setData(filteredDataByTopic);
+
 
 
     if(e.target.checked === true){
@@ -64,7 +95,7 @@ export default function Home() {
 
   // handle learning format change:
   function handleLearningFormatChange (e) {
-    console.log("🔴", e.target.value, e.target.checked);
+    // console.log("🔴", e.target.value, e.target.checked);
     if(e.target.checked === true){
       setActiveLearningFormats([...activeLearningFormats, e.target.value]);
       e.target.parentElement.style.backgroundColor = 'green';
@@ -118,7 +149,7 @@ program options.</p>
 <div className="flex flex-col w-1/3 text-center bg-red-0">
 <h2 className="text-2xl font-bold my-5">Topics</h2>
 
-{["Business Strategy", "Change & Culture", "Innovation & Digital Informatrion","Personal Leadership & Team Development"].map((item, index) => {
+{["business-strategy", "change-&-culture", "innovation-&-digital-information","personal-leadership-&-team-development"].map((item, index) => {
   return (
   <label key={index} className="rounded-full bg-[lightBlue] py-5 mb-2" id={item} onChange={handleTopicChange} value={item}>{item}
   <input type="checkbox" className="hidden topics" id={item} value={item}/>
@@ -130,7 +161,7 @@ program options.</p>
 {/* Learning Formats: */}
 <h2 className="text-2xl font-bold mb-5 mt-10">Learning Formats</h2>
 
-{["Virtual", "Residential", "Blended", "Self-Study"].map((item, index)=>{
+{["virtual", "residential", "blended", "self-study"].map((item, index)=>{
 
   return (
   <label key={index} className="rounded-full bg-[lightGreen] py-5 mb-2" id={item} onChange={handleLearningFormatChange} value={item}>{item}
@@ -156,9 +187,9 @@ program options.</p>
 
 
 <div className="w-2/3 px-7">
-<p className="text-2xl font-bold text-center pb-4">Results</p>
+<p className="text-2xl font-bold text-center pb-4">Results: {filteredData.length}</p>
 
-<div className="">{data.map((item, index) => { return <div className="wrapperForResults" key={index}>
+<div className="">{filteredData.map((item, index) => { return <div className="wrapperForResults" key={index}>
 
 <div className="itemWrapper bg-purple-200 my-6 py-7 rounded-lg px-5 shadow-md">
 
