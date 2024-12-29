@@ -6,7 +6,13 @@ export default function Results ({data}) {
 return (<div className="resultsListing">
 
 
-        <p className="text-2xl font-bold text-center pb-4">Results: {data.length}</p>
+        <p className="text-2xl font-bold text-center pb-4 bg-red-800">
+
+                Results: {data.length}
+
+
+
+                </p>
 
         <div className="">
 

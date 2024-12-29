@@ -10,7 +10,7 @@ import Image from "next/image"
 
 export default function TopHeader () {
 
-return (<div className="flex flex-col w-full py-14 justify-center items-center gap-10">
+return (<div className="flex flex-col w-full py-14 justify-center items-center gap-10 lg:pl-[33%]">
 
 <Image
 src="/Media/Logo_EF.png"
