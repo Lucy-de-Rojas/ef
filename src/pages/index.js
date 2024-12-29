@@ -6,6 +6,7 @@ import TopicsSelector from "@/components/topicsSelector";
 import LearningFormatsSellectors from "@/components/learningFormats";
 import ResetButton from "@/components/resetButton";
 import FiltersButton from "@/components/filtersButton";
+import TopHeader from "@/components/topHeader";
 
 
 
@@ -58,6 +59,8 @@ export default function Home2 () {
 
 return (<div>
 
+  <TopHeader />
+
 <FiltersButton data={filteredData.length} />
 
 
@@ -65,7 +68,7 @@ return (<div>
 
 
 {/* filters: */}
-<div className="flex flex-col w-full absolute lg:static lg:w-1/3 lg:mr-5 bg-white"
+<div className="flex flex-col w-full absolute left-[-110%] lg:static lg:w-1/3 lg:mr-5 bg-white"
 
       id="selectorsWrapper">
 

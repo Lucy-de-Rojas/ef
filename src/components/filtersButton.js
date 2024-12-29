@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 
@@ -10,25 +10,17 @@ export default function FiltersButton ({data}) {
 
 
 
-
-
-
-
-
-
-
-
         function handleShowHideFilters() {
                 let selectors = document.getElementById("selectorsWrapper");
 
                 if(!filtersShowing){
-                        setFiltersShowing(true);
                         setButtonValue("Hide Filters")
+                        setFiltersShowing(true);
                         selectors.style.left = 0;
                 }
                 else {
-                        setFiltersShowing(false);
                         setButtonValue("Show Filters")
+                        setFiltersShowing(false);
                         selectors.style.left = "-110%";
                 }
 

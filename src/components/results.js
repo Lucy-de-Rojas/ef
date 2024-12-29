@@ -28,14 +28,11 @@ return (<div className="resultsListing">
 <div className="spacer"> <hr  className="h-3/4 bg-black rounded-full mb-4 mt-1"/></div>
 
 
-<div className="bottomSection flex flex-col text-center">
+<div className="bottomSection flex flex-col lg:flex-row lg:justify-between text-center">
 <div className="topicWrapper text-cente">
    {item.topic.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
 
   </div>
-
-
-
 
 <div className="learningFormatsWrapper flex flex-row justify-center">
 
