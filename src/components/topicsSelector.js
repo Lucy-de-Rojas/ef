@@ -35,7 +35,7 @@ export default function TopicsSelector ({activeTopics, setActiveTopics}) {
       }
 
 
-return (<div className="flex flex-col w-full text-center bg-red-0">
+return (<div className="flex flex-col text-center">
 
 {/* topics checkboxes: */}
 <h2 className="text-2xl font-bold my-5">Topics</h2>

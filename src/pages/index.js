@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import Data from "@/components/data";
+
+//
 import Results from "@/components/results";
 import TopicsSelector from "@/components/topicsSelector";
 import LearningFormatsSellectors from "@/components/learningFormats";
 import ResetButton from "@/components/resetButton";
+import FiltersButton from "@/components/filtersButton";
+
 
 
 
@@ -25,6 +28,10 @@ export default function Home2 () {
                 .then(response => response.json())
                 .then(data => {setData(data)})
                 .catch(error => console.error('Error fetching data:', error));
+
+                if(activeTopics.length==0 && activeLearningFormats.length == 0) {
+                  setFilteredData(data);
+          }
 
 
                 const filteredData = data.filter(item =>
@@ -51,10 +58,18 @@ export default function Home2 () {
 
 return (<div>
 
-<div className="conntentWrapper flex">
+<FiltersButton data={filteredData.length} />
 
 
-<div className="selectorsWrapper flex flex-col  w-1/3 rounded-lg bg-white shadow-lg p-8">
+<div className="contentWrapper flex px-5">
+
+
+{/* filters: */}
+<div className="flex flex-col w-full absolute lg:static lg:w-1/3 lg:mr-5 bg-white"
+
+      id="selectorsWrapper">
+
+
 
 <TopicsSelector activeTopics={activeTopics} setActiveTopics={setActiveTopics} />
 
@@ -66,8 +81,8 @@ return (<div>
 
 
 
-
-<div className="resultsWrapper w-3/4">
+{/* results: */}
+<div className="resultsWrapper w-full lg:w-2/3">
         {/* {(activeTopics.length==0 && activeLearningFormats.length==0) && <Results data={data} />} */}
         {/* {(activeTopics || activeLearningFormats) && <Results data={filteredData} />} */}
         <Results data={filteredData} />

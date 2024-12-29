@@ -18,7 +18,7 @@ export default function LearningFormatsSellectors ({activeLearningFormats, setAc
       }
 
 
-return (<div className="flex flex-col w-full text-center bg-red-0">
+return (<div className="flex flex-col text-center">
 
 {/* Learning Formats: */}
 <h2 className="text-2xl font-bold mb-5 mt-10">Learning Formats</h2>

@@ -21,7 +21,7 @@ export default function ResetButton ({setActiveTopics, setActiveLearningFormats}
       }
 
 
-return (<div className="flex flex-col w-full text-center bg-red-0">
+return (<div className="flex flex-col">
 
 {/* reset button: */}
 <input type="button" value="Reset Filters" className="bg-red-500 rounded-full py-5 mt-10 text-white font-bold text-2xl" onClick={handleResetFilters} />

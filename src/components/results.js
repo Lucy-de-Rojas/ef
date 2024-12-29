@@ -3,7 +3,7 @@ export default function Results ({data}) {
 
 
 
-return (<div className="resultsListing w-full px-7">
+return (<div className="resultsListing">
 
 
         <p className="text-2xl font-bold text-center pb-4">Results: {data.length}</p>
@@ -18,7 +18,7 @@ return (<div className="resultsListing w-full px-7">
 
 
                                         <div className="titleSection flex flex-row justify-between">
-                                        <span className="font-bold"> {item.title}</span>  {item.bestseller && <span> 🔥 Bestseller </span>}</div>
+                                        <span className="font-bold"> {item.title}</span>  {item.bestseller && <span className="text-right"> 🔥 Bestseller </span>}</div>
 
 
 
@@ -28,8 +28,8 @@ return (<div className="resultsListing w-full px-7">
 <div className="spacer"> <hr  className="h-3/4 bg-black rounded-full mb-4 mt-1"/></div>
 
 
-<div className="bottomSection flex flex-row justify-between">
-<div className="topicWrapper">
+<div className="bottomSection flex flex-col text-center">
+<div className="topicWrapper text-cente">
    {item.topic.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
 
   </div>
@@ -37,7 +37,7 @@ return (<div className="resultsListing w-full px-7">
 
 
 
-<div className="learningFormatsWrapper flex flex-row ">
+<div className="learningFormatsWrapper flex flex-row justify-center">
 
 {item.learningFormats.map((format, index) => (
   <span key={index} className="">
