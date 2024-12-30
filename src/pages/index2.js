@@ -37,7 +37,7 @@ export default function Home2 () {
                         setFilteredData(data);
                 }
 
-        }, []);
+        }, [activeLearningFormats, activeTopics, data]);
 
 
 

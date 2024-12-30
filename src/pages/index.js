@@ -45,7 +45,7 @@ export default function Home2 () {
                         setFilteredData(data);
                 }
 
-        }, []);
+        }, [activeTopics, activeLearningFormats, data]);
 
 
 
