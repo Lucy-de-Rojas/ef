@@ -57,12 +57,12 @@ return (<div className="resultsListing">
 
 
 <div className="bottomSection flex flex-col lg:flex-row lg:justify-between">
-<div className="topicWrapper text-cente">
+<div className="topicWrapper">
    {item.topic.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
 
   </div>
 
-<div className="learningFormatsWrapper flex flex-row justify-center">
+<div className="learningFormatsWrapper flex flex-row">
 
 {item.learningFormats.map((format, index) => (
   <span key={index} className="">
