@@ -19,7 +19,7 @@ width={200}
 height={200}
 />
 
-<p className="font-bold text-5xl text-gray-700">
+<p className="font-bold text-3xl lg:text-5xl  text-gray-700">
 
 Course Selector
 </p>
