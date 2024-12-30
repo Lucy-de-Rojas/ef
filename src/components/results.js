@@ -1,7 +1,7 @@
 import AZSwitch from "./azswitch"
 
 
-export default function Results ({data, setData, filteredData, setFilteredData}) {
+export default function Results ({data, setData, filteredData, setFilteredData, setAZSorting}) {
 
         function handleAZ () {
 
@@ -29,16 +29,8 @@ return (<div className="resultsListing">
                <span className="flex items-center"> Results: {data.length}  </span>
 
 
-                {/* sorting buttons */}
-               <div>
-                <input type="button" value="A-Z ⬇️" className="bg-gray-400 px-5 rounded-full py-2 shadow-xl mx-2" onClick={handleAZ}   />
-                <input type="button" value="Z-A ⬆️" className="bg-gray-400 px-5 rounded-full py-2 shadow-xl mx-2" />
-
-               </div>
-
-
-
-               {/* <AZSwitch data={data} setData={setData} filteredData={filteredData} /> */}
+                {/* AZ sorting buttons: */}
+               <AZSwitch setAZSorting={setAZSorting}  />
 
 
 

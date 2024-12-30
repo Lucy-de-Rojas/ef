@@ -8,39 +8,16 @@ import { useState } from "react";
 
 
 
-export default function AZSwitch ({data, filteredData}) {
+export default function AZSwitch ({setAZSorting}) {
 
 
         function handleAZ(){
-
-
-
-                // alert("az");
-                console.clear();
-                data.sort((a,b) => {
-
-                        if(a.title > b.title){
-                                return -1;
-                        }
-                        if(a.title < b.title){
-                                return 1;
-                        }
-                        return 0;
-
-                });
-
-
-
-
-
-
+                setAZSorting(true);
         }
 
 
         function handleZA(){
-
-
-
+                setAZSorting(false);
 
         }
 

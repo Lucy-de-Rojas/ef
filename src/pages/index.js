@@ -8,6 +8,8 @@ import ResetButton from "@/components/resetButton";
 import FiltersButton from "@/components/filtersButton";
 import TopHeader from "@/components/topHeader";
 
+import { sortingAZ, sortingZA } from "../../utils/sorting";
+
 
 
 
@@ -16,6 +18,7 @@ export default function Home2 () {
 
         const [data, setData] = useState([]);
         const [filteredData, setFilteredData] = useState([]);
+        const [azSorting, setAZSorting] = useState(true);
 
         const [activeTopics, setActiveTopics] = useState([]);
         const [activeLearningFormats, setActiveLearningFormats] = useState([]);
@@ -25,72 +28,46 @@ export default function Home2 () {
 
 
         useEffect(() => {
+
+                console.log("az sorting in useEffects 🔴", azSorting)
                 fetch('/api/data')
                 .then(response => response.json())
                 .then(data => {
 
-                        // sorting az:
-                        // data.sort((a,b) => {
-                        //         const titleA = a.title;
-                        //         const titleB = b.title;
+                        if(azSorting){
+                                data.sort(sortingAZ);
+                        }
+                        else {
+                                data.sort(sortingZA);
+                        }
 
-                        //         if(titleA < titleB) {
-                        //                 return -1;
-                        //         }
-                        //         if (titleA > titleB) {
-                        //                 return 1;
-                        //         }
-
-                        //         return 0;
-
-
-                        // })
-
-                        setData(data)
-
+                     setData(data);
 
                 })
                 .catch(error => console.error('Error fetching data:', error));
 
 
+
                 // NO filtered data:
                 if(activeTopics.length==0 && activeLearningFormats.length == 0) {
 
-                  setFilteredData(data);
+                  setData(data);
           }
 
-
+        //   filtered data:
                 const filteredData = data.filter(item =>
                         (activeTopics.length === 0 || activeTopics.includes(item.topic)) &&
                         (activeLearningFormats.length === 0 || item.learningFormats.some(format => activeLearningFormats.includes(format)))
                       );
 
 
-                //       sorting filtered data AZ:
-                // filteredData.sort((a,b) => {
-
-
-                //         if(a.title < b.title) {
-                //                 return -1;
-                //         }
-                //         if (a.title > b.title) {
-                //                 return 1;
-                //         }
-
-                //         return 0;
-                // });
                 setFilteredData(filteredData);
 
                 if(activeTopics.length==0 && activeLearningFormats.length == 0) {
                         setFilteredData(data);
                 }
 
-        }, [data, activeLearningFormats, activeTopics]);
-
-
-
-
-
+        }, [activeLearningFormats, activeTopics, azSorting,data]);
 
 
 
@@ -108,11 +85,7 @@ return (<div>
 
 
 {/* filters: */}
-<div className="flex flex-col w-full absolute left-[-110%] lg:static lg:w-1/3 lg:mr-5 bg-white"
-
-      id="selectorsWrapper">
-
-
+<div className="flex flex-col w-full absolute left-[-110%] lg:static lg:w-1/3 lg:mr-5 bg-white" id="selectorsWrapper">
 
 <TopicsSelector activeTopics={activeTopics} setActiveTopics={setActiveTopics} />
 
@@ -124,11 +97,13 @@ return (<div>
 
 
 
+
+
 {/* results: */}
 <div className="resultsWrapper w-full lg:w-2/3">
-        {/* {(activeTopics.length==0 && activeLearningFormats.length==0) && <Results data={data} />} */}
-        {/* {(activeTopics || activeLearningFormats) && <Results data={filteredData} />} */}
-        <Results data={filteredData} />
+
+        <Results data={filteredData} setAZSorting={setAZSorting} />
+
         </div>
 
 
