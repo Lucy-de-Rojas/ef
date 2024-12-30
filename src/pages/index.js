@@ -60,6 +60,8 @@ export default function Home2 () {
                         (activeLearningFormats.length === 0 || item.learningFormats.some(format => activeLearningFormats.includes(format)))
                       );
 
+                if(azSorting){ filteredData.sort(sortingAZ)}
+                else {filteredData.sort(sortingZA)}
 
                 setFilteredData(filteredData);
 
