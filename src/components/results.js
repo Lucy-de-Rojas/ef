@@ -3,6 +3,19 @@ import AZSwitch from "./azswitch"
 
 export default function Results ({data, setData, filteredData, setFilteredData}) {
 
+        function handleAZ () {
+
+               const sortedData =  data.sort((a,b) => {
+                        if(a.title > b.title){ return -1;}
+                        if(a.title < b.title){ return 1}
+                        return 0;
+                });
+
+
+
+
+        }
+
 
 
 
@@ -13,11 +26,19 @@ return (<div className="resultsListing">
 
 
 
-               <span> Results: {data.length}  </span>
+               <span className="flex items-center"> Results: {data.length}  </span>
+
+
+                {/* sorting buttons */}
+               <div>
+                <input type="button" value="A-Z ⬇️" className="bg-gray-400 px-5 rounded-full py-2 shadow-xl mx-2" onClick={handleAZ}   />
+                <input type="button" value="Z-A ⬆️" className="bg-gray-400 px-5 rounded-full py-2 shadow-xl mx-2" />
+
+               </div>
 
 
 
-               <AZSwitch data={data} setData={setData} filteredData={filteredData} />
+               {/* <AZSwitch data={data} setData={setData} filteredData={filteredData} /> */}
 
 
 
@@ -43,7 +64,7 @@ return (<div className="resultsListing">
 <div className="spacer"> <hr  className="h-3/4 bg-black rounded-full mb-4 mt-1"/></div>
 
 
-<div className="bottomSection flex flex-col lg:flex-row lg:justify-between text-center">
+<div className="bottomSection flex flex-col lg:flex-row lg:justify-between">
 <div className="topicWrapper text-cente">
    {item.topic.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
 
