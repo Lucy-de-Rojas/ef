@@ -27,10 +27,35 @@ export default function Home2 () {
         useEffect(() => {
                 fetch('/api/data')
                 .then(response => response.json())
-                .then(data => {setData(data)})
+                .then(data => {
+
+                        // sorting az:
+                        // data.sort((a,b) => {
+                        //         const titleA = a.title;
+                        //         const titleB = b.title;
+
+                        //         if(titleA < titleB) {
+                        //                 return -1;
+                        //         }
+                        //         if (titleA > titleB) {
+                        //                 return 1;
+                        //         }
+
+                        //         return 0;
+
+
+                        // })
+
+                        setData(data)
+
+
+                })
                 .catch(error => console.error('Error fetching data:', error));
 
+
+                // NO filtered data:
                 if(activeTopics.length==0 && activeLearningFormats.length == 0) {
+
                   setFilteredData(data);
           }
 
@@ -39,13 +64,28 @@ export default function Home2 () {
                         (activeTopics.length === 0 || activeTopics.includes(item.topic)) &&
                         (activeLearningFormats.length === 0 || item.learningFormats.some(format => activeLearningFormats.includes(format)))
                       );
+
+
+                //       sorting filtered data AZ:
+                // filteredData.sort((a,b) => {
+
+
+                //         if(a.title < b.title) {
+                //                 return -1;
+                //         }
+                //         if (a.title > b.title) {
+                //                 return 1;
+                //         }
+
+                //         return 0;
+                // });
                 setFilteredData(filteredData);
 
                 if(activeTopics.length==0 && activeLearningFormats.length == 0) {
                         setFilteredData(data);
                 }
 
-        }, [activeTopics, activeLearningFormats, data]);
+        }, [data, activeLearningFormats, activeTopics]);
 
 
 

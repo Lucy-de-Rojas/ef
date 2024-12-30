@@ -1,18 +1,27 @@
+import AZSwitch from "./azswitch"
 
-export default function Results ({data}) {
+
+export default function Results ({data, setData, filteredData, setFilteredData}) {
+
 
 
 
 return (<div className="resultsListing">
 
 
-        <p className="text-2xl font-bold text-center pb-4">
-
-                Results: {data.length}
+        <div className="text-2xl font-bold text-center pb-4 flex justify-between">
 
 
 
-                </p>
+               <span> Results: {data.length}  </span>
+
+
+
+               <AZSwitch data={data} setData={setData} filteredData={filteredData} />
+
+
+
+                </div>
 
         <div className="">
 
