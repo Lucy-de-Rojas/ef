@@ -8,7 +8,8 @@ import ResetButton from "@/components/resetButton";
 import FiltersButton from "@/components/filtersButton";
 import TopHeader from "@/components/topHeader";
 
-import { sortingAZ, sortingZA } from "../../utils/sorting";
+import { sortingAZ, sortingZA, highLightAZ, highLightZA } from "../../utils/sorting";
+
 
 
 
@@ -36,9 +37,12 @@ export default function Home2 () {
 
                         if(azSorting){
                                 data.sort(sortingAZ);
+                                highLightAZ();
                         }
                         else {
                                 data.sort(sortingZA);
+                                highLightZA();
+
                         }
 
                      setData(data);
@@ -104,7 +108,7 @@ return (<div>
 {/* results: */}
 <div className="resultsWrapper w-full lg:w-2/3">
 
-        <Results data={filteredData} setAZSorting={setAZSorting} />
+        <Results data={filteredData} setAZSorting={setAZSorting}  />
 
         </div>
 

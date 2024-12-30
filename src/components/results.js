@@ -1,7 +1,7 @@
 import AZSwitch from "./azswitch"
 
 
-export default function Results ({data, setData, filteredData, setFilteredData, setAZSorting}) {
+export default function Results ({data, setData, filteredData, setFilteredData, setAZSorting, azSorting}) {
 
         function handleAZ () {
 
